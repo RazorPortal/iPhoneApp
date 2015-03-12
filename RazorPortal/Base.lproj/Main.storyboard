@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LLO-Lp-DEw">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Placeholder Title-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,116 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Image input coming soon!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-qJ-mkI">
+                                <rect key="frame" x="16" y="72" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="sb2-bH-gsm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Placeholder Title" id="F40-6y-c3H">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="RZc-uX-cgV">
+                            <connections>
+                                <segue destination="29d-Zl-dcF" kind="show" id="W6F-Us-rVP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="jDl-QQ-Eyf">
+                            <connections>
+                                <segue destination="lhw-4S-BrG" kind="show" id="jrD-Rf-hLQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="313" y="332"/>
+        </scene>
+        <!--CampusMap-->
+        <scene sceneID="mg9-tT-TGe">
+            <objects>
+                <viewController title="CampusMap" id="lhw-4S-BrG" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AsO-ZR-b99"/>
+                        <viewControllerLayoutGuide type="bottom" id="evg-dT-Rdt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GuK-be-VMi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yHx-Ka-oKn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yHx-Ka-oKn" firstAttribute="top" secondItem="GuK-be-VMi" secondAttribute="top" id="Car-vs-lDy"/>
+                            <constraint firstItem="yHx-Ka-oKn" firstAttribute="bottom" secondItem="evg-dT-Rdt" secondAttribute="top" id="Ety-QP-I2X"/>
+                            <constraint firstItem="yHx-Ka-oKn" firstAttribute="leading" secondItem="GuK-be-VMi" secondAttribute="leading" id="Moe-pq-1YM"/>
+                            <constraint firstAttribute="trailing" secondItem="yHx-Ka-oKn" secondAttribute="trailing" id="h0v-Rn-j1x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myMap" destination="yHx-Ka-oKn" id="BIZ-0R-Ejx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7VR-Ja-POk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="-80"/>
+        </scene>
+        <!--Website-->
+        <scene sceneID="OTB-ak-rfM">
+            <objects>
+                <viewController title="Website" id="29d-Zl-dcF" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ykv-l1-ELw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bhi-Lp-Igp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pxb-8m-LvU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCS-2I-4WK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xCS-2I-4WK" firstAttribute="leading" secondItem="Pxb-8m-LvU" secondAttribute="leading" id="8Ao-vw-vuV"/>
+                            <constraint firstItem="xCS-2I-4WK" firstAttribute="top" secondItem="Pxb-8m-LvU" secondAttribute="top" id="Bfr-ZO-ljJ"/>
+                            <constraint firstAttribute="trailing" secondItem="xCS-2I-4WK" secondAttribute="trailing" id="ii2-oz-0Ic"/>
+                            <constraint firstItem="xCS-2I-4WK" firstAttribute="bottom" secondItem="Bhi-Lp-Igp" secondAttribute="top" id="yfL-BQ-bF6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myWeb" destination="xCS-2I-4WK" id="ay6-GO-tWI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J96-hO-znb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="654"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="x3T-6B-mUH">
+            <objects>
+                <navigationController id="LLO-Lp-DEw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Ic-cv-AbN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="UbK-8E-xP6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pg5-sI-fir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-400" y="332"/>
         </scene>
     </scenes>
 </document>
