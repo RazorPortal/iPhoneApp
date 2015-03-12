@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Placeholder Title-->
+        <!--RazorPortal Home-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,10 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Image input coming soon!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-qJ-mkI">
-                                <rect key="frame" x="16" y="72" width="200" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Use the buttons to navigate." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-qJ-mkI">
+                                <rect key="frame" x="0.0" y="64" width="449" height="82"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="sb2-bH-gsm"/>
+                                    <constraint firstAttribute="width" constant="249" id="sb2-bH-gsm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -28,7 +28,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Placeholder Title" id="F40-6y-c3H">
+                    <navigationItem key="navigationItem" title="RazorPortal Home" id="F40-6y-c3H">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="RZc-uX-cgV">
                             <connections>
                                 <segue destination="29d-Zl-dcF" kind="show" id="W6F-Us-rVP"/>
@@ -48,7 +48,7 @@
         <!--CampusMap-->
         <scene sceneID="mg9-tT-TGe">
             <objects>
-                <viewController title="CampusMap" id="lhw-4S-BrG" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CampusMap" id="lhw-4S-BrG" customClass="MapViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AsO-ZR-b99"/>
                         <viewControllerLayoutGuide type="bottom" id="evg-dT-Rdt"/>
@@ -80,7 +80,7 @@
         <!--Website-->
         <scene sceneID="OTB-ak-rfM">
             <objects>
-                <viewController title="Website" id="29d-Zl-dcF" customClass="ViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Website" id="29d-Zl-dcF" customClass="WebsiteViewController" customModule="RazorPortal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ykv-l1-ELw"/>
                         <viewControllerLayoutGuide type="bottom" id="Bhi-Lp-Igp"/>

@@ -14,6 +14,8 @@
 		B5630C6B1AB21FB10097DC8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5630C6A1AB21FB10097DC8D /* Images.xcassets */; };
 		B5630C6E1AB21FB10097DC8D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5630C6C1AB21FB10097DC8D /* LaunchScreen.xib */; };
 		B5630C7A1AB21FB10097DC8D /* RazorPortalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5630C791AB21FB10097DC8D /* RazorPortalTests.swift */; };
+		B5630C841AB230FF0097DC8D /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5630C831AB230FF0097DC8D /* WebsiteViewController.swift */; };
+		B5630C861AB232920097DC8D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5630C851AB232920097DC8D /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		B5630C731AB21FB10097DC8D /* RazorPortalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RazorPortalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5630C781AB21FB10097DC8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5630C791AB21FB10097DC8D /* RazorPortalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPortalTests.swift; sourceTree = "<group>"; };
+		B5630C831AB230FF0097DC8D /* WebsiteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
+		B5630C851AB232920097DC8D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				B5630C6C1AB21FB10097DC8D /* LaunchScreen.xib */,
 				B5630C621AB21FB10097DC8D /* RazorPortal.xcdatamodeld */,
 				B5630C5E1AB21FB10097DC8D /* Supporting Files */,
+				B5630C831AB230FF0097DC8D /* WebsiteViewController.swift */,
+				B5630C851AB232920097DC8D /* MapViewController.swift */,
 			);
 			path = RazorPortal;
 			sourceTree = "<group>";
@@ -215,8 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5630C841AB230FF0097DC8D /* WebsiteViewController.swift in Sources */,
 				B5630C661AB21FB10097DC8D /* ViewController.swift in Sources */,
 				B5630C641AB21FB10097DC8D /* RazorPortal.xcdatamodeld in Sources */,
+				B5630C861AB232920097DC8D /* MapViewController.swift in Sources */,
 				B5630C611AB21FB10097DC8D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +417,7 @@
 				B5630C7F1AB21FB10097DC8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5630C801AB21FB10097DC8D /* Build configuration list for PBXNativeTarget "RazorPortalTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +426,7 @@
 				B5630C821AB21FB10097DC8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
