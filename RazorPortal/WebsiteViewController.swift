@@ -15,7 +15,7 @@ class WebsiteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = "http://csce.uark.edu/~cxfreema/RazorPortal/Login.html"
+        let url = "http://uaf59189.ddns.uark.edu/Login.php"
         let requestURL = NSURL(string:url)
         let request = NSURLRequest(URL: requestURL!)
         myWeb.loadRequest(request)
