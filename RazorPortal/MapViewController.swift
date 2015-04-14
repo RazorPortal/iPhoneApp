@@ -50,7 +50,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //talk to database
         getallrecords()
         
-        //Drops example pins
+        //Drops hardcoded pins (for demo purposes)
+        /*
         dropPin("Bell Engineering Center", subtitle: "BELL", lat: 36.067044, long: -94.171396)
         dropPin("JB Hunt Center for Academic Excellence", subtitle: "JBHT", lat: 36.065958, long: -94.173698)
         dropPin("Nanoscale Material Science and Engineering Building", subtitle: "NANO", lat: 36.066017, long: -94.169347)
@@ -58,6 +59,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         dropPin("Arkansas Union", subtitle: "UNIN", lat: 36.068620, long: -94.175827)
         dropPin("Vol Walker Hall", subtitle: "VOLW", lat: 36.068664, long: -94.172721)
         dropPin("Mullins Library", subtitle: "MULL", lat: 36.068725, long: -94.173751)
+        //36.066359, -94.172850 MEEG
+        */
     }
     
     //location manager method
@@ -110,7 +113,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     var classcode : String = dd["classcode"]! as! String
                     
                     if (username == "apptest") {
-                        self.dropPin(building, subtitle: " ", lat: 36.065958, long: -94.171396)
+                        var sub = "subtitle"
+                        var lat = 0.0
+                        var lng = 0.0
+                        if (building == "JBHT") {
+                            sub = "JB Hunt Center for Academic Excellence"
+                            lat = 36.065958
+                            lng = -94.173698
+                        }
+                        if (building == "MEEG") {
+                            sub = "Mechanical Engineering"
+                            lat = 36.066359
+                            lng = -94.172850
+                        }
+                        if (building == "BELL") {
+                            sub = "Bell Engineering Center"
+                            lat = 36.067044
+                            lng = -94.171396
+                        }
+                        
+                        //actually drops pin
+                        self.dropPin(classname, subtitle: building, lat: lat, long: lng)
                     }
                 }
             }
