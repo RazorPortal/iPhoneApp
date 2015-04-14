@@ -27,25 +27,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //set location to UARK campus
+        //sets centered location to UARK campus
         let location = CLLocationCoordinate2D(latitude: 36.0687, longitude: -94.1760)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegion(center: location, span: span)
         myMap.setRegion(region, animated: true)
         
-        //show current user location
-        locationManager.requestWhenInUseAuthorization()
-        self.myMap.mapType = MKMapType.Standard
-        self.myMap.showsUserLocation = true
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+        //if location services enabled
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            //asks user for tracking permission
+            self.locationManager.requestWhenInUseAuthorization()
+            
+            //sets location info
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            self.myMap.mapType = MKMapType.Standard
+            self.myMap.showsUserLocation = true
+        }
         
         //talk to database
-        //getallrecords()
-        
-        
+        getallrecords()
         
         //Drops example pins
         dropPin("Bell Engineering Center", subtitle: "BELL", lat: 36.067044, long: -94.171396)
@@ -55,6 +58,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         dropPin("Arkansas Union", subtitle: "UNIN", lat: 36.068620, long: -94.175827)
         dropPin("Vol Walker Hall", subtitle: "VOLW", lat: 36.068664, long: -94.172721)
         dropPin("Mullins Library", subtitle: "MULL", lat: 36.068725, long: -94.173751)
+    }
+    
+    //location manager method
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue: CLLocationCoordinate2D = locationManager.location.coordinate
+        let cent = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+        let region = MKCoordinateRegion(center: cent, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        self.myMap.setRegion(region, animated: true)
+        var currentLoc = CLLocation()
+        var locLat = currentLoc.coordinate.latitude
+        var locLong = currentLoc.coordinate.longitude
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,12 +97,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var d = NSString(data: data, encoding: NSUTF8StringEncoding)
             var arr = d!.componentsSeparatedByString("<")
-            // spliting the incoming string from "<" operator because before that operator is our required data and storing in array
             var dataweneed:NSString = arr[0]as! NSString
-            // arr[0] is the data before "<" operator and arr[1] is actually no use for us
             if let data = NSJSONSerialization.JSONObjectWithData(dataweneed.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSArray
             {
-                for dd in data{
+                for dd in data {
                     var username : String = dd["username"]! as! String
                     var classname : String = dd["classname"]! as! String
                     var days : String = dd["days"]!as! String
@@ -98,7 +110,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     var classcode : String = dd["classcode"]! as! String
                     
                     if (username == "apptest") {
-                        //self.dropPin(building, subtitle: " ", lat: 36.065958, long: -94.171396)
+                        self.dropPin(building, subtitle: " ", lat: 36.065958, long: -94.171396)
                     }
                 }
             }
