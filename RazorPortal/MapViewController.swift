@@ -5,12 +5,6 @@
 //  Created by Chris Drewry on 3/12/15.
 //  Copyright (c) 2015 Chris Drewry. All rights reserved.
 //
-// IMPORTANT SHIT:
-//      user: root
-//      pass: tu3xooGh
-//      when in doubt, var char[255]
-//
-//currently only pulls classes for apptest
 
 import Foundation
 import UIKit
@@ -29,7 +23,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         //sets centered location to UARK campus
         let location = CLLocationCoordinate2D(latitude: 36.0687, longitude: -94.1760)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.04, 0.04)
         let region = MKCoordinateRegion(center: location, span: span)
         myMap.setRegion(region, animated: true)
         
@@ -48,19 +42,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         //talk to database
-        getallrecords()
-        
-        //Drops hardcoded pins (for demo purposes)
-        /*
-        dropPin("Bell Engineering Center", subtitle: "BELL", lat: 36.067044, long: -94.171396)
-        dropPin("JB Hunt Center for Academic Excellence", subtitle: "JBHT", lat: 36.065958, long: -94.173698)
-        dropPin("Nanoscale Material Science and Engineering Building", subtitle: "NANO", lat: 36.066017, long: -94.169347)
-        dropPin("Science and Engineering", subtitle: "SCEN", lat: 36.066999, long: -94.172636)
-        dropPin("Arkansas Union", subtitle: "UNIN", lat: 36.068620, long: -94.175827)
-        dropPin("Vol Walker Hall", subtitle: "VOLW", lat: 36.068664, long: -94.172721)
-        dropPin("Mullins Library", subtitle: "MULL", lat: 36.068725, long: -94.173751)
-        //36.066359, -94.172850 MEEG
-        */
+        dropHardCodedPins()
+        //getallrecords()
     }
     
     //location manager method
@@ -72,6 +55,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         var currentLoc = CLLocation()
         var locLat = currentLoc.coordinate.latitude
         var locLong = currentLoc.coordinate.longitude
+    }
+    
+    //only call for demonstrations where an account isnt already setup
+    func dropHardCodedPins() {
+        dropPin("Bell Engineering Center", subtitle: "BELL", lat: 36.067044, long: -94.171396)
+        dropPin("JB Hunt Center for Academic Excellence", subtitle: "JBHT", lat: 36.065958, long: -94.173698)
+        dropPin("Nanoscale Material Science and Engineering Building", subtitle: "NANO", lat: 36.066017, long: -94.169347)
+        dropPin("Science and Engineering", subtitle: "SCEN", lat: 36.066999, long: -94.172636)
+        dropPin("Arkansas Union", subtitle: "UNIN", lat: 36.068620, long: -94.175827)
+        dropPin("Vol Walker Hall", subtitle: "VOLW", lat: 36.068664, long: -94.172721)
+        dropPin("Mullins Library", subtitle: "MULL", lat: 36.068725, long: -94.173751)
+        dropPin("Mechanical Engineering", subtitle: "MEEG", lat: 36.066359, long: -94.172850)
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,13 +90,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     //downloads user classes to an array
-    func getallrecords(){
+    func getallrecords() {
         let url = NSURL(string: "http://uaf59189.ddns.uark.edu/service.php")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             var d = NSString(data: data, encoding: NSUTF8StringEncoding)
             var arr = d!.componentsSeparatedByString("<")
-            var dataweneed:NSString = arr[0]as! NSString
-            if let data = NSJSONSerialization.JSONObjectWithData(dataweneed.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSArray
+            var dataSrc:NSString = arr[0]as! NSString
+            if let data = NSJSONSerialization.JSONObjectWithData(dataSrc.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers, error: nil) as? NSArray
             {
                 for dd in data {
                     var username : String = dd["username"]! as! String
@@ -120,13 +115,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                             sub = "JB Hunt Center for Academic Excellence"
                             lat = 36.065958
                             lng = -94.173698
-                        }
-                        if (building == "MEEG") {
+                        } else if (building == "MEEG") {
                             sub = "Mechanical Engineering"
                             lat = 36.066359
                             lng = -94.172850
-                        }
-                        if (building == "BELL") {
+                        } else if (building == "BELL") {
                             sub = "Bell Engineering Center"
                             lat = 36.067044
                             lng = -94.171396
