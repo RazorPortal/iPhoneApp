@@ -16,15 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Use the buttons to navigate." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-qJ-mkI">
-                                <rect key="frame" x="0.0" y="64" width="449" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="sb2-bH-gsm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Welcome to RazorPortal! Use the buttons to navigate." translatesAutoresizingMaskIntoConstraints="NO" id="Dh7-6g-Wr6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -60,7 +57,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yHx-Ka-oKn">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yHx-Ka-oKn">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
@@ -72,6 +69,8 @@
                             <constraint firstAttribute="trailing" secondItem="yHx-Ka-oKn" secondAttribute="trailing" id="h0v-Rn-j1x"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myMap" destination="yHx-Ka-oKn" id="BIZ-0R-Ejx"/>
                     </connections>
@@ -105,6 +104,7 @@
                             <constraint firstItem="xCS-2I-4WK" firstAttribute="bottom" secondItem="Bhi-Lp-Igp" secondAttribute="top" id="yfL-BQ-bF6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ivs-Of-ag2"/>
                     <connections>
                         <outlet property="myWeb" destination="xCS-2I-4WK" id="ay6-GO-tWI"/>
                     </connections>
